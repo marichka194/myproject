@@ -1,0 +1,36 @@
+{% load staticfiles %}
+{% load myfilters %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap-3.2.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap-3.2.0-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap-3.2.0-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Дата и время</th>
+                <th>Метод</th>
+                <th>Url</th>
+                <th>UserAgent</th>
+            </tr>
+            {% for log in logs %}
+                <tr>
+                    <td>{{ log.datetime }}</td>
+                    <td>{{ log.method }}</td>
+                    <td>{{ log.url }}</td>
+                    <td>{{ log.user_agent }}</td>
+                    <td>{{ log|ed_link }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
