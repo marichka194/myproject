@@ -47,7 +47,7 @@
                     </div>
                     <label class="col-sm-2 control-label"></label>
                     <div class="col-sm-10">
-                        <a href={% url 'person_editing' person.skype %}>
+                        <a href={% url 'person_editing' p.pk %}>
                             <button type="button" class="btn btn-primary">Edit</button>
                         </a>
                     </div>
@@ -55,10 +55,12 @@
             </form>
         {% endfor %}
     <a href="{% url 'logs' %}">ЛОГИ</a>
-    <br>{{ STATIC_URL }}
-    <br>{{ STATIC_ROOT }}
-    <br>{{ default }}
-    <br>{{ languages }}
+    <br>{{ settings.STATIC_URL }}
+    <br>{{ settings.STATIC_ROOT }}
+    {% for i in settings.DATABASES.default|splitter:',' %}
+        <br>{{ i }}
+    {% endfor %}
+    <br>{{ settings.LANGUAGE_CODE }}
     </div>
 </body>
 </html>

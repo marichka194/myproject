@@ -36,6 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap_toolkit',
+    'bootstrap3',
+    'bootstrapform',
     'lessons',
 )
 
@@ -58,9 +61,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    'lessons.context_processors.static',
-    'lessons.context_processors.databases',
-    'lessons.context_processors.languages'
+    'lessons.context_processors.settings_def',
 )
 
 ROOT_URLCONF = 'myproject1.urls'
