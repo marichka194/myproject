@@ -31,15 +31,16 @@ def log_table(request):
     return response
 
 
-def person_editing(request, skype):
-    person = Person.objects.get(skype=skype)
+def person_editing(request, person_pk):
+    person = Person.objects.get(pk=person_pk)
     form = PersonEditingForm(instance=person)
     context = {
         'person': person,
-        'form': form
+        'person_form': form
     }
     response = TemplateResponse(
         request=request,
         template='edit_form.html',
         context=context
     )
+    return response
